@@ -10,8 +10,14 @@ class Product:
         '''Иницилизация обьекта Product'''
         self.name = name
         self.description = description
-        self.price = price
+        self.__price = price
         self.quantity = quantity
+
+    @classmethod
+    def creat_product(cls, name, description, price, quantity):
+        return cls(name, description, price, quantity)
+
+    
 
 class Category:
     ''' класс Category'''
