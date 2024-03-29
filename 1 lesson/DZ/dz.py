@@ -17,7 +17,16 @@ class Product:
     def creat_product(cls, name, description, price, quantity):
         return cls(name, description, price, quantity)
 
-    
+    @property
+    def price(self):
+        return self.__price
+
+    @price.setter
+    def price(self, new_price):
+        if new_price <=0:
+            print('Некорректная цена')
+        else:
+            self.__price = new_price
 
 class Category:
     ''' класс Category'''
