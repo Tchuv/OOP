@@ -28,6 +28,10 @@ class Product:
         else:
             self.__price = new_price
 
+    def __str__(self):
+        return f'{self.name}, {self.__price} руб. Остаток {self.quantity} шт.'
+
+
 class Category:
     ''' класс Category'''
     name: str #имя
@@ -44,9 +48,9 @@ class Category:
         self.description = description
         self. __product = product
         Category.all_category += 1
-        for i in range(len(self.product)): #добавление новых уникальных продуктов
-            if not self.product[i] in Category.all_product:
-                Category.all_product.append(self.product[i])
+        for i in range(len(self.__product)): #добавление новых уникальных продуктов
+            if not self.__product[i] in Category.all_product:
+                Category.all_product.append(self.__product[i])
         Category.quantity_product = len(Category.all_product) #количество уникальных продуктов
 
     def add_product(self, value):
@@ -58,6 +62,9 @@ class Category:
         for list in self.product:
             list.append (f'{product.name},{product.price} руб. Остаток {product.quantity}')
             return list
+
+    def __str__(self):
+        return f'{self.name}, количество продуктов: {Category.quantity_product} шт.'
 
 
 
