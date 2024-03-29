@@ -56,7 +56,7 @@ class Category:
     def list_prod(self):
         list=[]
         for list in self.product:
-            list += f'{product.name},{product.price} руб. Остаток {product.quantity}\n'
+            list.append (f'{product.name},{product.price} руб. Остаток {product.quantity}')
             return list
 
 
