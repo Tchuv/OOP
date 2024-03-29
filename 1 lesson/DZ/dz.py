@@ -34,6 +34,18 @@ class Category:
                 Category.all_product.append(self.product[i])
         Category.quantity_product = len(Category.all_product) #количество уникальных продуктов
 
+    def add_product(self, value):
+        self.__product.append(value)
+
+    @property
+    def list_prod(self):
+        list=''
+        for list in self.product:
+            list += f'{product.name},{product.price} руб. Остаток {product.quantity}\n'
+            return list
+
+
+
 
 
 
