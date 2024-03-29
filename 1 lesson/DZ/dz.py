@@ -27,7 +27,7 @@ class Category:
         '''Инициализация обьекта Category'''
         self.name = name
         self.description = description
-        self.product = product
+        self. __product = product
         Category.all_category += 1
         for i in range(len(self.product)): #добавление новых уникальных продуктов
             if not self.product[i] in Category.all_product:
