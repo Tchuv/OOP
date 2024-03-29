@@ -54,7 +54,7 @@ class Category:
 
     @property
     def list_prod(self):
-        list=''
+        list=[]
         for list in self.product:
             list += f'{product.name},{product.price} руб. Остаток {product.quantity}\n'
             return list
