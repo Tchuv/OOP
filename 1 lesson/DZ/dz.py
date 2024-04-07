@@ -58,7 +58,7 @@ class Category:
         Category.quantity_product = len(Category.all_products)  # количество уникальных продуктов
 
     def add_products(self, value):
-        if isinstance(value, Product ):
+        if not isinstance(value, Product ):
             raise TypeError('Ошибка. Обьект другого типа')
         self.__products.append(value)
 
