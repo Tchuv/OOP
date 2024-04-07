@@ -82,10 +82,7 @@ class Smartphone(Product):
         self.memory = memory
         self.color = color
 
-    def __add__(self, other):
-        if isinstance(other, Product):
-            ...
-        raise TypeError
+
 
 class Lawn_grass(Product):
     """Дочерний класс Газонная трава"""
