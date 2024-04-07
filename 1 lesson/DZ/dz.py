@@ -32,8 +32,10 @@ class Product:
         return f'{self.name}, {self.__price} руб. Остаток {self.quantity} шт.'
 
     def __add__(self, other):
-        return self.__price * self.quantity + other.price * other.quantity
-
+        if type(self) == type(other):
+            return self.__price * self.quantity + other.price * other.quantity
+        else:
+            raise TypeError
 
 class Category:
     ''' класс Category'''
@@ -77,6 +79,11 @@ class Smartphone(Product):
         self.model = model
         self.memory = memory
         self.color = color
+
+    def __add__(self, other):
+        if isinstance(other, Product):
+            ...
+        raise TypeError
 
 class Lawn_grass(Product):
     """Дочерний класс Газонная трава"""
