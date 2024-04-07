@@ -40,38 +40,38 @@ class Category:
     ''' класс Category'''
     name: str #имя
     description: str #описание
-    product: list #список продуктов в категории
+    products: list #список продуктов в категории
     all_category = 0 #количество категорий
-    all_product = [] #список всех уникальных продуктов
+    all_products = [] #список всех уникальных продуктов
     quantity_product = 0 #общее количествоуникальных продуктов
 
 
-    def __init__(self, name, description, product):
+    def __init__(self, name, description, products):
         '''Инициализация обьекта Category'''
         self.name = name
         self.description = description
-        self. __product = product
+        self. __products = products
         Category.all_category += 1
-        for i in range(len(self.__product)): #добавление новых уникальных продуктов
-            if not self.__product[i] in Category.all_product:
-                Category.all_product.append(self.__product[i])
-        Category.quantity_product = len(Category.all_product) #количество уникальных продуктов
+        for i in range(len(self.__products)): #добавление новых уникальных продуктов
+            if not self.__products[i] in Category.all_products:
+                Category.all_products.append(self.__products[i])
+        Category.quantity_product = len(Category.all_products) #количество уникальных продуктов
 
-    def add_product(self, value):
-        self.__product.append(value)
+    def add_products(self, value):
+        self.__products.append(value)
 
     @property
-    def list_prod(self):
-        list=[]
-        for list in self.product:
-            list.append (f'{product.name},{product.price} руб. Остаток {product.quantity}')
-            return list
+    def products(self):
+        result = ''
+        for product in self.__products:
+            result += f'{product}\n'
+        return result
 
     def __str__(self):
         return f'{self.name}, количество продуктов: {Category.quantity_product} шт.'
 
-
-
-
+a = Category('шарики', 'шары надувные', [['красный', 'шарик резиновый', 3.5, 5], ['белый','шарик силиконовый', 5.5, 7]])
+b = Category('кубики', 'кубы деревянные', ["'тяжёлый', 'куб свинцовый, 7, 2", "'легкий','куб деревянный', 2, 10"])
+c = Product('шарик1','шарик резиновый', 3.5, 10)
 
 
