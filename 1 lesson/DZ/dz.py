@@ -5,9 +5,15 @@ class ABC_product(ABC):
     def creat_product (cls, name, description, price, quantity):
         pass
 
+class LogMixin:
+    def __init__(self, *args, **kwargs) -> None:
+        print(repr(self))
+
+    def __repr__(self):
+        return f'{self.__class__}({self.__dict__.items()})'
 
 
-class Product(ABC_product):
+class Product(LogMixin, ABC_product):
     ''' класс Product'''
 
     name: str # имя
