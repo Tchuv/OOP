@@ -1,4 +1,13 @@
-class Product:
+from abc import ABC, abstractmethod
+
+class ABC_product(ABC):
+    @abstractmethod
+    def creat_product (cls, name, description, price, quantity):
+        pass
+
+
+
+class Product(ABC_product):
     ''' класс Product'''
 
     name: str # имя
