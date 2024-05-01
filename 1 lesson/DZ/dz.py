@@ -90,6 +90,21 @@ class Category:
     def __str__(self):
         return f'{self.name}, количество продуктов: {Category.quantity_product} шт.'
 
+    def average_price(self):
+        pr = 0
+        av_pr = 0
+        for i in range(len(self.__products)):
+            pr += int(self.__products[i][2])
+        try:
+            av_pr = pr / len(self.__products)
+        except ZeroDivisionError:
+            av_pr = 0
+        return av_pr
+
+
+
+
+
 class Smartphone(Product):
     """ дочерний класс телефоны"""
     def __init__(self, name: str, description: str, price: float, quantity: int,
@@ -113,21 +128,11 @@ class Lawn_grass(Product):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 a = Category('шарики', 'шары надувные',
              [['красный', 'шарик резиновый', 3.5, 5], ['белый', 'шарик силиконовый', 5.5, 7]])
-b = Category('кубики', 'кубы деревянные', ["'тяжёлый', 'куб свинцовый, 7, 2", "'легкий','куб деревянный', 2, 10"])
+b = Category('кубики', 'кубы деревянные',
+             [['тяжёлый', 'куб свинцовый', 7, 2], ['легкий','куб деревянный', 2, 10]])
 c = Product('шарик1', 'шарик резиновый', 3.5, 10)
 
+print(b.average_price())
 
