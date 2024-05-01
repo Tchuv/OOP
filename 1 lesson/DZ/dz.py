@@ -25,9 +25,12 @@ class Product(LogMixin, ABC_product):
         '''Иницилизация обьекта Product'''
         self.name = name
         self.description = description
-        self.__price = price
-        self.quantity = quantity
-
+        self.__price =  price
+        try:
+            self.quantity = quantity
+        except ValueError:
+            print("Товар с нулевым количеством не может быть добавлен")
+            quit()
     @classmethod
     def creat_product(cls, name, description, price, quantity):
         return cls(name, description, price, quantity)
