@@ -98,7 +98,7 @@ class Smartphone(Product):
         self.color = color
 
 
-
+#ggg
 class Lawn_grass(Product):
     """Дочерний класс Газонная трава"""
     def __init__(self, name: str, description: str, price: float, quantity: int,
